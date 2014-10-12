@@ -3,10 +3,11 @@ using System.Data.SqlClient;
 using Dapper;
 using Wng.InternalApi.Domain;
 using Wng.InternalApi.Helpers;
+using Wng.InternalApi.Interfaces;
 
 namespace Wng.InternalApi.Repositories
 {
-    public class CarterClaimRepository
+    public class CarterClaimRepository : ICarterClaimRepository
     {
         public IEnumerable<EaPolicySummary> GetPolicySummary(string policyNumber)
         {
@@ -36,7 +37,7 @@ namespace Wng.InternalApi.Repositories
 	                            ON ic.UnderwriterId = uw.UnderwriterId
                             LEFT JOIN [dbo].[Brand] AS br
 	                            ON ic.BrandId = br.BrandId
-                            WHERE ph.PolicyNumber = @value and pd.SequenceNumber = (
+                            WHERE ph.PolicyNumber = @PolicyNumber and pd.SequenceNumber = (
 	                            SELECT MAX(SequenceNumber)
 	                            FROM [dbo].[PolicyDetail] as ipd
 	                            LEFT JOIN [dbo].[PolicyHeader] as iph

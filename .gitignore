@@ -1,5 +1,7 @@
 # Windows image file caches
 packages
+**/bin/*.*
+**/obj/*.*
 Thumbs.db
 ehthumbs.db
 

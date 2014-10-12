@@ -17,3 +17,4 @@ C:\Users\jdunlop\Documents\GitHub\Wng.InternalApi\Wng.InternalApi\bin\Superscrib
 C:\Users\jdunlop\Documents\GitHub\Wng.InternalApi\Wng.InternalApi\bin\Superscribe.Owin.pdb
 C:\Users\jdunlop\Documents\GitHub\Wng.InternalApi\Wng.InternalApi\obj\Debug\Wng.InternalApi.dll
 C:\Users\jdunlop\Documents\GitHub\Wng.InternalApi\Wng.InternalApi\obj\Debug\Wng.InternalApi.pdb
+C:\Users\jdunlop\Documents\GitHub\Wng.InternalApi\Wng.InternalApi\obj\Debug\Wng.InternalApi.csprojResolveAssemblyReference.cache

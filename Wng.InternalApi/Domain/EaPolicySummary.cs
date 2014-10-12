@@ -10,6 +10,6 @@
         public string EmailAddress { get; set; }
         public string PolicyDepartureDate { get; set; }
         public string PolicyReturnDate { get; set; }
-        public string UnderWriter { get; set; }
+        public string Underwriter { get; set; }
     }
 }

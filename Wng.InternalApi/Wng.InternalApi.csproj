@@ -87,6 +87,7 @@
     <Compile Include="Domain\EaPolicySummary.cs" />
     <Compile Include="Helpers\ParameterHelper.cs" />
     <Compile Include="Helpers\ParameterHelperMethods.cs" />
+    <Compile Include="Interfaces\ICarterClaimRepository.cs" />
     <Compile Include="Repositories\CarterClaimRepository.cs" />
     <Compile Include="RouteModules\DefaultModule.cs" />
     <Compile Include="RouteModules\EaPolicySummaryModule.cs" />
