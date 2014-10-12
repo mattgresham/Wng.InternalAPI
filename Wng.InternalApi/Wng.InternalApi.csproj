@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Wng.InternalAPI.Service</RootNamespace>
-    <AssemblyName>Wng.InternalAPI.Service</AssemblyName>
+    <RootNamespace>Wng.InternalApi</RootNamespace>
+    <AssemblyName>Wng.InternalApi</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -84,10 +84,12 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Domain\EAPolicy.cs" />
-    <Compile Include="Repositories\EAPolicyRepository.cs" />
+    <Compile Include="Domain\EaPolicySummary.cs" />
+    <Compile Include="Helpers\ParameterHelper.cs" />
+    <Compile Include="Helpers\ParameterHelperMethods.cs" />
+    <Compile Include="Repositories\CarterClaimRepository.cs" />
     <Compile Include="RouteModules\DefaultModule.cs" />
-    <Compile Include="RouteModules\EAPolicyModule.cs" />
+    <Compile Include="RouteModules\EaPolicySummaryModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -102,7 +104,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Lib\" />
     <Folder Include="Tests\" />
   </ItemGroup>
   <PropertyGroup>

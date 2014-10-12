@@ -1,10 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using Superscribe.Owin;
 
-using Superscribe.Models;
-using Superscribe.Owin;
-
-namespace Wng.InternalAPI.Service.RouteModules
+namespace Wng.InternalApi.RouteModules
 {
     public class DefaultModule : SuperscribeOwinModule
     {

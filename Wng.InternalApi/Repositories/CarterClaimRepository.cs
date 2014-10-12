@@ -1,19 +1,16 @@
 ﻿using System.Collections.Generic;
-using System.Configuration;
 using System.Data.SqlClient;
 using Dapper;
-using System.Linq;
+using Wng.InternalApi.Domain;
+using Wng.InternalApi.Helpers;
 
-using Wng.InternalAPI.Service.Domain;
-
-namespace Wng.InternalAPI.Service.Repositories
+namespace Wng.InternalApi.Repositories
 {
-    public class EAPolicyRepository
+    public class CarterClaimRepository
     {
-        public IEnumerable<EAPolicy> getPolicies(string policyNumber)
+        public IEnumerable<EaPolicySummary> GetPolicySummary(string policyNumber)
         {
-            string connectionString = ConfigurationManager.ConnectionStrings["WngConfigEAPolicy"].ConnectionString;
-            string query = @"
+            string policyQuery = @"
                             SELECT TOP 10
 	                            ph.PolicyNumber,
 	                            br.Code as Brand,
@@ -44,14 +41,14 @@ namespace Wng.InternalAPI.Service.Repositories
 	                            FROM [dbo].[PolicyDetail] as ipd
 	                            LEFT JOIN [dbo].[PolicyHeader] as iph
 		                            ON ipd.PolicyHeaderId = iph.PolicyHeaderID
-	                            WHERE iph.PolicyNumber = @value)";
+	                            WHERE iph.PolicyNumber = @PolicyNumber)";
 
-            using (var sqlConnection
-                = new SqlConnection(connectionString))
+            using (var sqlConnection = new SqlConnection(ParameterHelper.Current.CarterClaimDatabaseConnectionString))
             {
                 sqlConnection.Open();
-                IEnumerable<EAPolicy> policies = sqlConnection
-                    .Query<EAPolicy>(query, new { value = policyNumber });
+
+                var policies = sqlConnection
+                    .Query<EaPolicySummary>(policyQuery, new { PolicyNumber = policyNumber });
 
                 return policies;
             }

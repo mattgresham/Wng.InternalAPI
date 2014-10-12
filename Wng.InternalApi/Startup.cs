@@ -1,21 +1,20 @@
 ﻿using System.IO;
-
-using Owin;
-
 using Newtonsoft.Json;
-
+using Owin;
 using Superscribe.Owin;
 using Superscribe.Owin.Engine;
 using Superscribe.Owin.Extensions;
 
-namespace Wng.InternalAPI.Service
+namespace Wng.InternalApi
 {
     public class Startup
     {
         public void Configuration(IAppBuilder app)
         {
             var options = new SuperscribeOwinOptions();
+
             options.MediaTypeHandlers.Remove("text/html");
+
             options.MediaTypeHandlers.Add("text/html", new MediaTypeHandler
             {
                 Write = (env, o) => env.WriteResponse(JsonConvert.SerializeObject(o)),
@@ -46,7 +45,7 @@ namespace Wng.InternalAPI.Service
                 }
             });
 
-            // Replace text/html with json handler so example works in a browser
+           // Replace text/html with json handler so example works in a browser
            // options.MediaTypeHandlers.Add("text/html", options.MediaTypeHandlers["application/json"]);
 
             var engine = OwinRouteEngineFactory.Create(options);
